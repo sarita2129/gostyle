@@ -1,0 +1,62 @@
+<h1>Registration</h1>
+<div class="workcontainer">
+  <ul>
+<%= form_for @user do |f| %>
+  <li>
+  <%= f.label :email %>
+  <%= f.email_field :email, :required => true, :autofocus => true %>
+  </li>
+  <li>
+  <%= f.label :password %>
+  <%= f.password_field :password, :required => true %>
+  </li>
+  <li>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, :required => true %>
+  </li>
+  <li>
+  <%= f.label :name, "Name"%>
+  <%= f.text_field :name %>
+  </li>
+  <li>
+  <%= f.label :dob %>
+  <%= f.date_field :dob %>
+  </li>
+  <li>
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+  </li>
+  <li>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  </li>
+  <li>
+  <%= f.label :phone, "Phone No" %>
+  <%= f.text_field :phone %>
+  </li>
+  <li>
+  <%= f.label :companyname, "Company Name" %>
+  <%= f.text_field :companyname %>
+  </li>
+  <li>
+  <%= f.label :companyaddress, "Comapany Address" %>
+  <%= f.text_field :companyaddress %>
+  </li>
+  <li>
+  <%= f.label :companywebsite, "Company Website" %>
+  <%= f.text_field :companywebsite %>
+  </li>
+  <li>
+  <%= f.label :companycontactinfo ,"Company Contact" %>
+  <%= f.text_field :companycontactinfo %>
+  </li>
+  <li>
+  <%= f.label :admin ,"Are you a Buyer?" %>
+  <%= f.check_box :admin, :value => "Buyer" %>
+  </li>
+  <li>
+  <%= f.submit "Sign up!" %>
+  <li>
+<% end %>
+</ul>
+</div>

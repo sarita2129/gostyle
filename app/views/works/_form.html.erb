@@ -1,0 +1,20 @@
+<% if flash[:error_message].present? %>
+  <p><%= flash[:error_message] %></p>
+<% end %>
+<% if @work.persisted? %>
+ <% @visit = @work.visit else @visit = 0 %>
+ <% end %>
+
+
+<%= form_for @work do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title, :required => true, :autofocus => true %>
+  <%= f.label :image, "Upload Image" %>
+  <%= f.text_field :image %>
+  <%= f.label :description, "description" %>
+  <%= f.text_area :description %>
+  <%= f.hidden_field :visit, :value => @visit %>
+
+  <%= f.submit "Save" %>
+
+<% end %>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gostyle</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <header>
+
+    <%= link_to 'GOSTYLE', root_path, :class => "logo" %>
+    <div id ="searchdiv">
+      <%= form_tag("/search", method: :get) do %>
+        <%= text_field_tag :searchtext, params[:searchtext], placeholder: "search", class: "project-start" %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+
+    <nav>
+    <%= link_to 'Home', root_path %>
+    <%= link_to 'About', '/about' %>
+    <%= link_to 'Contact Us', '/contact' %>
+
+    <% if @current_user.present? %>
+    <% if @current_user != nil && @current_user.admin == "Buyer" %>
+          <%= link_to 'Contracts', contracts_path %>
+        <% end %>
+        <%= link_to 'Work', works_path %>
+
+        <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_path %>
+        <%= link_to 'Sign In', login_path %>
+        <% end %>
+        </nav>
+        </header>
+    <div class="container">
+      <%= yield %>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<h1>Contract</h1>
+<%= form_for @contract do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description, :required => true %>
+
+  <%= f.label :contract_from, "Start date"%>
+  <%= f.text_field :contract_from %>
+
+  <%= f.label :contract_to, "End date" %>
+  <%= f.date_field :contract_to %>
+
+  <%= f.label :status %>
+  <%= f.text_field :status %>
+  <%= f.submit "Create" %>
+
+<% end %>

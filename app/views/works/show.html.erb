@@ -1,0 +1,71 @@
+<div class="workcontainer">
+
+<div class="main">
+  <h2><%= @work.title %></h2>
+  <%= @work.description %>
+  <% unless @work.image.nil? %>
+  <%= image_tag @work.image, :alt => @work.title %>
+  <% end %>
+
+
+</div>
+<div class="aside">
+  <h2>Designed By</h2>
+  <% unless @user.nil? && @user.image.nil? %>
+  <%= image_tag @user.image, :alt => @user.name, :id => "userdp" %>
+  <% end %>
+  <ul>
+  <li>
+  <label>Designer Name:</label>
+  <%= label_tag @user.name %>
+  </li>
+
+  <li>
+  <label>Date of Birth:</label>
+  <%= label_tag @user.dob %>
+  </li>
+
+  <li>
+  <label>Address:</label>
+  <%= label_tag @user.address %>
+  </li>
+
+  <li>
+  <label>Phone:</label>
+  <%= label_tag @user.phone %>
+  </li>
+
+  <li>
+  <label>Company Name:</label>
+  <%= label_tag @user.companyname %>
+  </li>
+
+  <li>
+  <label>Company Address:</label>
+  <%= label_tag @user.companyaddress %>
+  </li>
+
+  <li>
+  <label>Company Website:</label>
+  <%= label_tag @user.companywebsite %>
+  </li>
+
+  <li>
+  <label>Company Contact:</label>
+  <%= label_tag @user.companycontactinfo %>
+  </li>
+
+  </ul>
+</div>
+<div class="controls">
+  <% if @current_user != nil && @current_user == @work.user_id %>
+  <%= link_to 'Edit', edit_work_path(@work) %>
+  <%= link_to 'Delete', @work, :method => 'delete' %>
+  <% end %>
+  <%= link_to 'Rank', ranks_new_path %>
+  <% if @current_user != nil && @current_user.admin == "Buyer" %>
+  <%= link_to 'Create Contract', contracts_new_path %>
+  <% end %>
+
+</div>
+</div>
