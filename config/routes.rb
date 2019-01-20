@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'contracts/new'
-  get 'ranks/new'
+
   # get 'works/new'
   # get 'session/new'
   root :to => 'pages#home'
@@ -12,7 +11,8 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
   get '/search' => 'pages#search'
-
+  get 'contracts/new'
+  get 'ranks/new'
 
 
   get '/login' => 'session#new'

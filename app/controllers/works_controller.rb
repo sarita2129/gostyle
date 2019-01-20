@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 class WorksController < ApplicationController
   # before_action :fetch_access,:only => [:show]
   # before_action :check_for_usertype,:only => [:show]
