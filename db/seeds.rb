@@ -12,3 +12,6 @@
 # dob:text image:text address:text phone:text companyname:text companyaddress:text
 # companywebsite:text companycontactinfo:text
 # Work.update :user_id => 6
+
+u1 = User.create :email => 'test4@ga.co', :password => 'chicken', :admin => true, :image => ''
+u2 = User.create :email => 'test5@ga.co', :password => 'chicken'
