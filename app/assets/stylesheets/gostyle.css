@@ -111,7 +111,7 @@ white-space: normal;
 }
 .img-with-text {
     text-align: justify;
-    width: [width of img];
+    /* width: [width of img]; */
     display: inline-block;
 }
 
