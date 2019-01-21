@@ -1,5 +1,5 @@
 
-<% if @works.any? %>
+<% if !@works.nil? && @works.any? %>
 <!-- <ul> -->
 <% @works.each do |work| %>
 <div class="workdiv">
