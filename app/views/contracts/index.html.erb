@@ -1,7 +1,36 @@
 <h2>Contracts Generated</h2>
-<ul>
-  <% @contracts.each do |contract| %>
-  <%= link_to contract.user_id, contract %>
-  <% end %>
 
-</ul>
+<% if @current_user.admin == "Buyer" %>
+<%= link_to "Create Contract", new_contract_path %>
+<% end %>
+<table>
+  <th>Description</th><th>Created By</th><th>Designer Name</th><th>Designer Contact No</th><th>From</th><th>To</th><th>Status</th><th>Amount</th>
+  <% @contracts.each do |contract| %>
+  <tr>
+  <td>
+  <%= link_to contract.description, contract %>
+  </td>
+  <td>
+    <%= contract.buyer.name %>
+  </td>
+  <td>
+    <%= contract.seller.name %>
+  </td>
+  <td>
+    <%= contract.seller.phone %>
+  </td>
+  <td>
+    <%= contract.contract_from %>
+  </td>
+  <td>
+    <%= contract.contract_to %>
+  </td>
+  <td>
+    <%= contract.status %>
+  </td>
+  <td>
+    <%= contract.amount %>
+  </td>
+  <% end %>
+</tr>
+</table>

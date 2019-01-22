@@ -53,11 +53,12 @@ nav a{
   -moz-box-shadow: inset 6px 6px 78px -15px rgba(133,179,246,1);
   box-shadow: inset 6px 6px 78px -15px rgba(133,179,246,1); */
 }
-#searchbtn{
-  background: url('search.gif');
-  width : 20px;
-  height : 20px;
+.searchbtn{
+  background: url('search.jpg');
+  width : 25px;
+  height : 25px;
   display:inline;
+  background-size: cover;
 }
 .workdiv{
   width:200px;
@@ -172,4 +173,10 @@ white-space: normal;
 li{
   list-style: none;
   padding:10px;
+}
+.starselect{
+  color :red;
+}
+.starremaining{
+  color : #F0F0F0;
 }

@@ -13,7 +13,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.text :companyaddress
       t.text :companywebsite
       t.text :companycontactinfo
-
+      t.references :seller, index: true
       t.timestamps
     end
   end

@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @works = Work.all
+    @rank = Rank.new
   end
   def search
     # binding.pry
@@ -15,6 +16,10 @@ class PagesController < ApplicationController
   end
   def contact
     render :contact
+  end
+  def error
+    @errormessage = params[:msg]
+    render :errorpage
   end
   # get '/pry' do
   # binding.pry

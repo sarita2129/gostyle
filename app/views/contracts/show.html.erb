@@ -1,1 +1,15 @@
+<% @contract.each do |contract| %>
+<h2><%= contract.title %></h2>
 
+<p>This agreement effective from <%= contract.contract_from %> till <%= contract.contract_to %> between <%= contract.buyer.name %> and <%= contract.seller.name %></p>
+<h3>Services:</h3>
+<p><%= contract.services %></p>
+<p>Client agrees to pay a fee of <%= contract.amount %> to the designer for the services outlined above.</p>
+<p><%= contract.description %></p>
+
+<%= link_to 'Edit', edit_contract_path(contract) %>
+<% if @current_user.admin == "Buyer" %>
+<%= link_to 'Delete', contract, :method => 'delete' %>
+<% end %>
+
+<% end %>

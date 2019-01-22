@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'contracts/new'
   get 'ranks/new'
 
+  get '/error/:msg' => 'pages#error'
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

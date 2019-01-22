@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <%= cloudinary_js_config %>
   </head>
 
   <body>
@@ -17,7 +17,7 @@
     <div id ="searchdiv">
       <%= form_tag("/search", method: :get) do %>
         <%= text_field_tag :searchtext, params[:searchtext], placeholder: "search", class: "project-start" %>
-        <%= submit_tag "Search" %>
+        <%= submit_tag "", :class => "searchbtn" %>
       <% end %>
     </div>
 
@@ -28,9 +28,10 @@
 
     <% if @current_user.present? %>
     <% if @current_user != nil && @current_user.admin == "Buyer" %>
-          <%= link_to 'Contracts', contracts_path %>
         <% end %>
-        <%= link_to 'Work', works_path %>
+        <%= link_to 'Contracts', contracts_path %>
+
+        <%= link_to 'Work', new_work_path %>
 
         <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %>
       <% else %>

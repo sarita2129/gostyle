@@ -1,4 +1,6 @@
+<div id="new_article">
 
+</div>
 <% if !@works.nil? && @works.any? %>
 <!-- <ul> -->
 <% @works.each do |work| %>
@@ -6,6 +8,12 @@
  <div class="img-with-text">
     <%= image_tag work.image, :class => "workimg" %>
     <p class="wrapword"><%= link_to work.title, work_path(work.id)  %></p>
+    <!-- <a href="/ranks/new" name="1" class="astar" data-remote="true" method="create">*</a>
+    <a href="#" name="2" class="astar">*</a>
+    <a href="#" name="3" class="astar">*</a>
+    <a href="#" name="4" class="astar">*</a>
+    <a href="#" name="5" class="astar">*</a> -->
+    <%= link_to "*", @rank,:name => "1", remote: true, method: :create %>
 </div>
 </div>
 <% end %>

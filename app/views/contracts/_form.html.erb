@@ -1,0 +1,40 @@
+<%= form_for @contract do |f| %>
+<% if @contract.persisted? %>
+<% @statusarr = ['New','Approved','Reject']%>
+<% @seller_id = @contract.seller_id %>
+<% else %>
+<% @statusarr = ['New']%>
+<% end %>
+  <%= f.label :title, "Title"  %>
+  <%= f.text_field :title, :required => true, :autofocus => true %>
+
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description, :required => true %>
+
+  <%= f.select :seller_id, options_for_select(@users.collect{|user| [user.name, user.id]}, @seller_id),
+  :prompt => "Select One", :class => 'form-control' %>
+
+  <%= f.label :contract_from, "Start date"%>
+  <%= f.date_field :contract_from %>
+
+  <%= f.label :contract_to, "End date" %>
+  <%= f.date_field :contract_to %>
+
+  <%= f.label :services, "Services" %>
+  <%= f.text_area :services %>
+
+  <%= f.label :amount, "Amount" %>
+  <%= f.text_field :amount %>
+
+  <%= f.label :status %>
+
+  <% if @contract.status != "New" %>
+  <% @statusdisabled = "disabled" %>
+  <% end %>
+  <%= f.select :status, options_for_select( @statusarr,
+  :selected => @contract.status),
+  {:required => true, :class => 'select'}, :disabled => @statusdisabled %>
+
+  <%= f.submit "Save" %>
+
+<% end %>
