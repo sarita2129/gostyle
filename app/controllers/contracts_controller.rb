@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 class ContractsController < ApplicationController
   def new
     if @current_user.admin == "Buyer"

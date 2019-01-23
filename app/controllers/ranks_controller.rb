@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 
 class RanksController < ApplicationController
   # before_action :fetch_work
