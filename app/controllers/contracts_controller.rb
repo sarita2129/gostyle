@@ -40,11 +40,11 @@ class ContractsController < ApplicationController
     @users = User.where.not(:admin => 'Buyer')
     @contract = Contract.find params[:id]
     if @current_user.admin != "Buyer"
-      @disable = "disabled"
+      @disable = true
     elsif @current_user.admin == "Buyer" && @contract.status != "New"
-      @disable = "disabled"
+      @disable = true
     else
-      @disable = "false"
+      @disable = false
     end
   end
   def create

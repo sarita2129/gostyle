@@ -2,7 +2,7 @@
 <%= form_for @rank do |f| %>
 
 <%= f.label :ranking ,"Ranking" %>
-<%= f.text_field :ranking %>
+<%= f.text_field :ranking, :type => "Number" %>
 <%= f.submit "Save" %>
 
 <% end %>

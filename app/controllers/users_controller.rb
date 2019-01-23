@@ -1,4 +1,4 @@
-# require 'pry'
+require 'pry'
 
 class UsersController < ApplicationController
   def new
@@ -11,11 +11,21 @@ class UsersController < ApplicationController
     else
       @user.admin = "Seller"
     end
+    if params[:image].present?
+      req = Cloudinary::Uploader.upload(params[:image])
+      @user.image = req["public_id"]
+    end
     # binding.pry
     if @user.save
-      # session[:user_id] = @user.id
+      session[:user_id] = @user.id
       redirect_to root_path
+    else
+      if params[:password] != params[:password_confirmation]
+        flash[:error_message] = "Password and confirm password do not match"
+      end
+      render :new
     end
+    # binding.pry
   end
   private
   def user_params

@@ -1,15 +1,20 @@
 <div class="workcontainer">
+<div class="row" >
+  <div class="col-6" id="main">
+    <h2><%= @work.title %></h2>
+    <%= @work.description %>
+    <% unless @work.image.nil? %>
+    <%= image_tag @work.image, :alt => @work.title %>
+    <% end %>
 
-<div class="main">
-  <h2><%= @work.title %></h2>
-  <%= @work.description %>
-  <% unless @work.image.nil? %>
-  <%= image_tag @work.image, :alt => @work.title %>
-  <% end %>
+  </div>
+<!-- <div class="main"> -->
 
 
-</div>
-<div class="aside">
+<!-- </div> -->
+<div class="col-6" id="aside">
+
+<!-- <div class="aside"> -->
   <h2>Designed By</h2>
   <% unless @user.nil? && @user.image.nil? %>
   <%= image_tag @user.image, :alt => @user.name, :id => "userdp" %>
@@ -54,18 +59,36 @@
   <label>Company Contact:</label>
   <%= label_tag @user.companycontactinfo %>
   </li>
+  <li>
+    <label>Rating:</label>
+    <% @avgrating.times do %>
+    <label class="starselect">*</label>
+    <% end %>
+    <% if 5-@avgrating > 0 %>
+    <% @rem = 5-@avgrating %>
+    <% @rem.times do %>
+    <label class="starremaining">*</label>
+    <% end %>
+    <% end %>
 
+  </li>
   </ul>
 </div>
-<div class="controls">
-  <% if @current_user != nil && @current_user == @work.user_id %>
-  <%= link_to 'Edit', edit_work_path(@work) %>
-  <%= link_to 'Delete', @work, :method => 'delete' %>
-  <% end %>
-  <%= link_to 'Rank', ranks_new_path %>
-  <% if @current_user != nil && @current_user.admin == "Buyer" %>
-  <%= link_to 'Create Contract', contracts_new_path %>
-  <% end %>
 
+</div>
+<div class="row">
+  <div class="col-6">
+    <div class="controls">
+      <% if @current_user != nil && @current_user.id == @work.user_id %>
+      <%= link_to 'Edit', edit_work_path(@work), :class => "btn btn-primary" %>
+      <%= link_to 'Delete', @work, :method => 'delete', :class => "btn btn-primary" %>
+      <% end %>
+      <%= link_to 'Rate', new_ratework_path, :class => "btn btn-primary" %>
+      <% if @current_user != nil && @current_user.admin == "Buyer" %>
+      <%= link_to 'Create Contract', new_contract_path, :class => "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
 </div>
 </div>

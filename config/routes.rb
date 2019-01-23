@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
   resources :users
   resources :works
-  resources :ranks
+  resources :rateworks
   resources :contracts
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
   get '/search' => 'pages#search'
-  get 'contracts/new'
-  get 'ranks/new'
+  # get 'contracts/new'
+  post '/ranks/add' => 'ranks#create'
 
   get '/error/:msg' => 'pages#error'
 

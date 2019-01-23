@@ -13,16 +13,15 @@
 # companywebsite:text companycontactinfo:text
 # Work.update :user_id => 6
 # User.destroy.all
-# u1 = User.create :email => 'test4@ga.co', :password => 'chicken', :admin => true, :image => ''
+u1 = User.create :email => 'test4@ga.co', :password => 'chicken', :admin => true, :image => ''
 # u2 = User.create :email => 'test5@ga.co', :password => 'chicken'
 # u1 = User.find_by :email => 'test4@ga.co'
-# w1 = Work.create :title => 'BLOSSOM JERSEY DRESS',:image => 'http://ww
-# w.bodenimages.com/productimages/zoom/18waut_j0233_nav_w02.jpg', :description => "There's no denying it: every woman needs a statement dress. Behold this scattered-flower print – designed in-house, of course – crafted from a drapey fabric so comfortable you'll never want to take it off. We've added fluted sleeves and a full skirt for an elegant touch, while subtle gathers at the front and back give it that figure-skimming WOW factor."
+w1 = Work.create :title => 'BLOSSOM JERSEY DRESS',:image => 'http://www.bodenimages.com/productimages/zoom/18waut_j0233_nav_w02.jpg', :description => "There's no denying it: every woman needs a statement dress. Behold this scattered-flower print – designed in-house, of course – crafted from a drapey fabric so comfortable you'll never want to take it off. We've added fluted sleeves and a full skirt for an elegant touch, while subtle gathers at the front and back give it that figure-skimming WOW factor."
 #
-# u1.works << w1
+u1.works << w1
 
-c1 = Contract.find_by :id => 1
-c1.Update :services => 'Designer Casual Dress - 20,Cocktail dress - 30,Casual shirts for men - 10,Designer Long Blue dress - 10', :title => 'Designer Services Agreement', :description => 'Payment of the fee will be due upon signing the invoices'
-
-c2 = Contract.find_by :id => 2
-c2.Update :services => 'Designer Slash Neck Women Dress - 20,Slim fit Tshirts for men - 30,Casual shirts for men - 10,Designer Long Blue dress - 10', :title => 'Designer Services Agreement', :description => 'Other charges and expenses not included in the fee.'
+# c1 = Contract.find_by :id => 1
+# c1.Update :services => 'Designer Casual Dress - 20,Cocktail dress - 30,Casual shirts for men - 10,Designer Long Blue dress - 10', :title => 'Designer Services Agreement', :description => 'Payment of the fee will be due upon signing the invoices'
+#
+# c2 = Contract.find_by :id => 2
+# c2.Update :services => 'Designer Slash Neck Women Dress - 20,Slim fit Tshirts for men - 30,Casual shirts for men - 10,Designer Long Blue dress - 10', :title => 'Designer Services Agreement', :description => 'Other charges and expenses not included in the fee.'

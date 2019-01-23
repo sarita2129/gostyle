@@ -1,11 +1,16 @@
-<h1>All Works</h1>
+<div class="workcontainer">
+<h2>List of My Works</h2>
+<%= link_to "Add Work", new_work_path, :class => "btn btn-primary" %>
+
 <% if @works.any? %>
-<ul>
+<!-- <ul> -->
 <% @works.each do |work| %>
- <li>
+<div class="form-group">
+
    <%= link_to work.title, work_path(work.id) %>
 
- </li>
+ </div>
 <% end %>
-</ul>
+<!-- </ul> -->
 <% end %>
+</div>

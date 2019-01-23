@@ -10,16 +10,18 @@ class RanksController < ApplicationController
     rank = Rank.new rank_params
     # work = Work.find params[:id]
     rank.user_id = @current_user.id
-    rank.work_id = @work_id
-    rank.ranking = params[:name]
+    rank.work_id = session[:work]["id"]
+    # rank.ranking = params[:ranking]
 
-    binding.pry
+    # binding.pry
     rank.save
   end
 
   private
   def rank_params
-    params.require(:rank).permit(:user_id,:work_id,:ranking,:name)
+    # params.permit(:user_id,:work_id,:ranking)
+    params.require(:rank).permit(:user_id,:work_id,:ranking)
+
   end
   private
   def fetch_work

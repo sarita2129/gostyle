@@ -1,0 +1,8 @@
+<h1>Ranking</h1>
+<%= form_for @rate do |f| %>
+
+<%= f.label :ranking ,"Rating" %>
+<%= f.text_field :ranking, :type => "Number", :min => 1, :max => 5 %>
+<%= f.submit "Save" %>
+
+<% end %>

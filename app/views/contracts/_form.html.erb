@@ -1,40 +1,89 @@
 <%= form_for @contract do |f| %>
+
 <% if @contract.persisted? %>
-<% @statusarr = ['New','Approved','Reject']%>
+<% if @contract.seller_id == @current_user.id && @contract.status == "New" %>
+<% @statusarr = ['Signed by Seller']%>
+<% else %>
+<% @statusarr = ['New','Approved','Reject','Signed by Seller']%>
+<% end %>
 <% @seller_id = @contract.seller_id %>
 <% else %>
 <% @statusarr = ['New']%>
 <% end %>
-  <%= f.label :title, "Title"  %>
-  <%= f.text_field :title, :required => true, :autofocus => true %>
+<!-- <div class="col-md-8 col-md-offset-2"> -->
+<div class="row">
+  <div class="col-4 col-md-offset-4">
+    <div class="form-group">
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, :required => true, :autofocus => true,:id => "txttitle", :readonly => @disable, :class => "form-control txt" %>
+    </div>
+  </div>
+  <div class="col-4 col-md-offset-4">
+    <div class="form-group">
+    <%= f.label :seller_id, "Designer" %>
+    <%= f.select :seller_id, options_for_select(@users.collect{|user| [user.name, user.id]}, @seller_id),
+    :prompt => "Select One", :readonly => @disable,:class => 'form-control drp'%>
+    </div>
 
-  <%= f.label :description, "Description" %>
-  <%= f.text_area :description, :required => true %>
+  </div>
 
-  <%= f.select :seller_id, options_for_select(@users.collect{|user| [user.name, user.id]}, @seller_id),
-  :prompt => "Select One", :class => 'form-control' %>
+</div>
+<div class="row">
+  <div class="col-4">
+    <div class="form-group">
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, :required => true,:id => "txtdescription",:readonly => @disable, :class => "form-control txtarea" %>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="form-group">
 
-  <%= f.label :contract_from, "Start date"%>
-  <%= f.date_field :contract_from %>
+    <%= f.label :services, "Services" %>
+    <%= f.text_area :services, :required => true ,:readonly => @disable, :class => "form-control txtarea"%>
+    </div>
+  </div>
 
-  <%= f.label :contract_to, "End date" %>
-  <%= f.date_field :contract_to %>
+</div>
+<div class="row">
+  <div class="col-4">
+    <div class="form-group">
 
-  <%= f.label :services, "Services" %>
-  <%= f.text_area :services %>
+    <%= f.label :contract_from, "Start date"%>
+    <%= f.date_field :contract_from, :required => true,:readonly => @disable, :class => "form-control txt" %>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="form-group">
 
-  <%= f.label :amount, "Amount" %>
-  <%= f.text_field :amount %>
+    <%= f.label :amount, "Amount" %>
+    <%= f.text_field :amount ,:type => "Number", :required => true,:readonly => @disable,:class => "form-control txt" %>
+    </div>
+  </div>
 
-  <%= f.label :status %>
+</div>
+<div class="row">
+  <div class="col-4">
+    <div class="form-group">
 
-  <% if @contract.status != "New" %>
-  <% @statusdisabled = "disabled" %>
-  <% end %>
-  <%= f.select :status, options_for_select( @statusarr,
-  :selected => @contract.status),
-  {:required => true, :class => 'select'}, :disabled => @statusdisabled %>
+    <%= f.label :contract_to, "End date" %>
+    <%= f.date_field :contract_to, :required => true ,:readonly => @disable,:class => "form-control txt"%>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="form-group">
+      <%= f.label :status %>
 
-  <%= f.submit "Save" %>
+      <% if @contract.status != "New" %>
+      <% @statusdisabled = true %>
+      <% end %>
+      <%= f.select :status, options_for_select( @statusarr,
+      :selected => @contract.status),
+      {:required => true, :class => 'select'}, :readonly => @statusdisabled, :class => "form-control txt" %>
+      <%= hidden_field "hidden", :id => "valdisable", :value => @disable %>
 
+    </div>
+  </div>
+</div>
+<%= f.submit "Save", :id => "btncontract",:class => "btn btn-primary" %>
 <% end %>
+<!-- </div> -->
