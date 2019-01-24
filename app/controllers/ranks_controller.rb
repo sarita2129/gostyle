@@ -14,7 +14,11 @@ class RanksController < ApplicationController
     # rank.ranking = params[:ranking]
 
     # binding.pry
-    rank.save
+    # rank.save
+    if rank.save
+      redirect_to works_path(session[:work]["id"])
+
+    end
   end
 
   private

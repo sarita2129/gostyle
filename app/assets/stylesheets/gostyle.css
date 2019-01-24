@@ -167,7 +167,7 @@ li{
   font-size: 20px;
 }
 .starremaining{
-  color : #000;
+  color : #8b8d91;
   font-size: 20px;
 
 }
@@ -197,4 +197,7 @@ table tr td{
 .col-centered{
     float: none;
     margin: 0 auto;
+}
+.centerdiv{
+  text-align: center;
 }

@@ -16,8 +16,21 @@ class WorksController < ApplicationController
     @work = Work.find params[:id]
     session[:work] = @work
     @user = User.where(:id => @work.user_id).first
-    @rating = Ratework.select("ranking, count(1) as rankcount").where(:work_id => params[:id]).group("ranking")
-    @avgrating = 3#Ratework.group(:work_id).pluck("work_id, AVG(Round(ranking))").having(":work_id => #{params[:id]}")#pluck("AVG(Round(ranking))")
+    @ratanlytics = Ratework.select("ranking").where(:work_id => params[:id]).group("ranking").count(:ranking)
+    @rating = Ratework.where(:work_id => params[:id])
+
+    # raise 'hell'
+    @sum = 0
+    @rating.each do |rating|
+      @sum += rating.ranking
+    end
+    if @rating.any?
+      @avgrating = (@sum / @rating.size).floor
+    else
+      @avgrating = 0
+    end
+    # raise 'hell'
+    #@avgrating = 3#Ratework.group(:work_id).pluck("work_id, AVG(Round(ranking))").having(":work_id => #{params[:id]}")#pluck("AVG(Round(ranking))")
     # binding.pry
   end
   def edit

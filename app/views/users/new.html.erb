@@ -1,5 +1,6 @@
-<h1>Registration</h1>
 <div class="workcontainer">
+  <h2 class="centerdiv">Registration</h2>
+
   <% if flash[:error_message].present? %>
     <p><%= flash[:error_message] %></p>
   <% end %>
@@ -91,7 +92,7 @@
     <div class="form-group">
     <%= f.check_box :admin, :value => "Buyer" %>
     <%= f.label :admin ,"Are you a Buyer?" %>
-    
+
     </div>
   </div>
 </div>
