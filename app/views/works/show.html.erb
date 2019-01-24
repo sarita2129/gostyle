@@ -27,7 +27,7 @@
 
   <li>
   <label>Date of Birth:</label>
-  <%= label_tag @user.dob %>
+  <%= label_tag @user.dob.strftime('%e %B, %Y') if @user.dob.present? %>
   </li>
 
   <li>
@@ -37,7 +37,7 @@
 
   <li>
   <label>Phone:</label>
-  <%= label_tag @user.phone %>
+  <%= label_tag number_to_phone @user.phone %>
   </li>
 
   <li>

@@ -19,6 +19,7 @@ class RanksController < ApplicationController
       redirect_to works_path(session[:work]["id"])
 
     end
+    raise('hell')
   end
 
   private
