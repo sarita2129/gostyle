@@ -2,7 +2,7 @@ class RateworksController < ApplicationController
   def new
     @rate = Ratework.new
   end
-  
+
   def create
     rate = Ratework.new rateworks_params
     # work = Work.find params[:id]
@@ -11,7 +11,9 @@ class RateworksController < ApplicationController
     # rank.ranking = params[:ranking]
 
     # binding.pry
-    rate.save
+    if rate.save
+      redirect_to work_path(session[:work]["id"])
+    end
   end
   private
   def rateworks_params
