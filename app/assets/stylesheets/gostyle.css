@@ -164,11 +164,11 @@ li{
 }
 .starselect{
   color :orange;
-  font-size: 20px;
+  font-size: 30px;
 }
 .starremaining{
   color : #8b8d91;
-  font-size: 20px;
+  font-size: 30px;
 
 }
 .controls{
@@ -200,4 +200,7 @@ table tr td{
 }
 .centerdiv{
   text-align: center;
+}
+.m-b10{
+  margin-bottom : 10px;
 }

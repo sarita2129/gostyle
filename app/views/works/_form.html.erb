@@ -1,5 +1,5 @@
-<div class="workcontainer">
-
+  <div class="row">
+  <div class="col-6 offset-md-4">
   <% if flash[:error_message].present? %>
     <p><%= flash[:error_message] %></p>
   <% end %>
@@ -23,7 +23,8 @@
       <%= f.text_area :description, :class => "form-control txtarea", :rows => 3 %>
     </div>
       <%= f.hidden_field :visit, :value => @visit %>
-      <%= f.submit "Save", :class => "btn btn-primary" %>
+      <%= f.submit "Save", :class => "btn btn-primary m-b10" %>
 
   <% end %>
+</div>
 </div>

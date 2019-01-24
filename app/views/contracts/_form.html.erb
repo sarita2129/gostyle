@@ -83,7 +83,9 @@
 
     </div>
   </div>
+  <div class="col-4 offset-md-3">
+    <%= f.submit "Save", :id => "btncontract",:class => "btn btn-primary m-b10", :disabled => @statusdisabled %>
+  </div>
 </div>
-<%= f.submit "Save", :id => "btncontract",:class => "btn btn-primary offset-md-3", :disabled => @statusdisabled %>
 <% end %>
 <!-- </div> -->
