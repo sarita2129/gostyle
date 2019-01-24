@@ -34,3 +34,7 @@
 # w1.destroy
 # Work.destroy_all
 # User.destroy_all
+u1 = User.find_by :email => 'test3@ga.co'
+u1.destroy
+u2 = User.find_by :email => 'test2@ga.co'
+u2.update :dob => '1980-01-21'
