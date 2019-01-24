@@ -29,4 +29,4 @@
 # u1 = User.find_by :email => 'test1@abc.com'
 # u1.update :dob => '1998-02-21'
 
-Ratework.destroy.all
+Ratework.destroy_all
