@@ -1,19 +1,19 @@
 <div class="workcontainer">
-<div class="row">
-<div class="col-8 offset-md-2">
-<% @contract.each do |contract| %>
-<h2><%= contract.title %></h2>
-<p>This agreement effective from <%= contract.contract_from.strftime('%e %B, %Y') if contract.contract_from.present? %> till <%= contract.contract_to.strftime('%e %B, %Y') if contract.contract_to.present? %> between <%= contract.buyer.name %> and <%= contract.seller.name %></p>
-<h3>Services:</h3>
-<p><%= contract.services %></p>
-<p>Client agrees to pay a fee of <%= number_to_currency contract.amount if contract.amount.present? %> to the designer for the services outlined above.</p>
-<p><%= contract.description %></p>
+  <div class="row">
+    <div class="col-8 offset-md-2">
+          <% @contract.each do |contract| %>
+            <h2><%= contract.title %></h2>
+            <p>This agreement effective from <%= contract.contract_from.strftime('%e %B, %Y') if contract.contract_from.present? %> till <%= contract.contract_to.strftime('%e %B, %Y') if contract.contract_to.present? %> between <%= contract.buyer.name %> and <%= contract.seller.name %></p>
+            <h3>Services:</h3>
+            <p><%= contract.services %></p>
+            <p>Client agrees to pay a fee of <%= number_to_currency contract.amount if contract.amount.present? %> to the designer for the services outlined above.</p>
+            <p><%= contract.description %></p>
 
-<%= link_to 'Edit', edit_contract_path(contract),:class => "btn btn-primary m-b10" %>
-<% if @current_user.admin == "Buyer" && contract.status == "New" %>
-<%= link_to 'Delete', contract, :method => 'delete',:class => "btn btn-primary m-b10" %>
-<% end %>
-<% end %>
-</div>
-</div>
+            <%= link_to 'Edit', edit_contract_path(contract),:class => "btn btn-primary m-b10" %>
+              <% if @current_user.admin == "Buyer" && contract.status == "New" %>
+                  <%= link_to 'Delete', contract, :method => 'delete',:class => "btn btn-primary m-b10" %>
+              <% end %>
+          <% end %>
+    </div>
+  </div>
 </div>

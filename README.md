@@ -1,24 +1,44 @@
-# README
+# Project1 - gostyle
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Gostyle is meant to encourage and connect fashion designer talent to acquire business with clients by showcasing their work on website. This site targets small scale business users who doesn't have huge infrastructures to support larger business but yet are born sensational.
 
-Things you may want to cover:
 
-* Ruby version
+Features Included:
 
-* System dependencies
+* User Registration
 
-* Configuration
+* Search
 
-* Database creation
+* Creating fashion design work
 
-* Database initialization
+* Submit ratings for work items
 
-* How to run the test suite
+* Display summary of ratings (average / detailed) for each items.
 
-* Services (job queues, cache servers, search engines, etc.)
+* Create contracts(enabled only for buyers)
 
-* Deployment instructions
+* Edit contracts available for seller for only status edits
 
-* ...
+* Work and contract edit delete by respective users
+
+Models:
+
+* User
+* Work
+* Contract
+* Ratework
+
+Gems used :
+
+* pg-search
+* bootstrap
+
+Seller:
+
+UserName : test1@ga.co
+password : chicken
+
+Buyer :
+
+UserName : test3@ga.co
+password : chicken

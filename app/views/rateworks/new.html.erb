@@ -1,14 +1,14 @@
 <div class="workcontainer">
-<div class="row">
-<div class="col-6 offset-md-4">
-<h2>Provide Rating</h2>
-<%= form_for @rate do |f| %>
-<div class="form-group">
-<%= f.label :ranking ,"Rating" %>
-<%= f.text_field :ranking, :type => "Number", :min => 1, :max => 5, :class => "form-control txt" %>
-</div>
-<%= f.submit "Save" ,:class => "btn btn-primary" %>
-<% end %>
-</div>
-</div>
+  <div class="row">
+    <div class="col-6 offset-md-4">
+        <h2>Provide Rating</h2>
+        <%= form_for @rate do |f| %>
+          <div class="form-group">
+              <%= f.label :ranking ,"Rating" %>
+              <%= f.text_field :ranking, :type => "Number", :min => 1, :max => 5, :class => "form-control txt" %>
+          </div>
+          <%= f.submit "Save" ,:class => "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
 </div>

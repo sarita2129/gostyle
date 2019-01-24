@@ -3,18 +3,16 @@
 
 <% @works.each do |work| %>
 <div class="workdiv">
- <div class="img-with-text">
-    <%= image_tag work.image, :class => "workimg" %>
-    <% if work.title.chars.length > 20 %>
-    <% @title = "#{work.title[0..17]}..." %>
-    <% else %>
-    <% @title = work.title %>
-    <% end %>
-    <p class="wrapword"><%= link_to @title, work_path(work.id)  %></p>
-
+   <div class="img-with-text">
+      <%= image_tag work.image, :class => "workimg" %>
+      <% if work.title.chars.length > 20 %>
+        <% @title = "#{work.title[0..17]}..." %>
+      <% else %>
+        <% @title = work.title %>
+      <% end %>
+      <p class="wrapword"><%= link_to @title, work_path(work.id)  %></p>
+  </div>
 </div>
-</div>
-
 <% end %>
 <!-- </ul> -->
 <% end %>

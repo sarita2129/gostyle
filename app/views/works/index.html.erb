@@ -1,20 +1,18 @@
 <div class="workcontainer">
-<div class="row">
-<div class="col-8 offset-md-2">
-<h2>List of My Works</h2>
-<%= link_to "Add Work", new_work_path, :class => "btn btn-primary" %>
+  <div class="row">
+    <div class="col-8 offset-md-2">
+          <h2>List of My Works</h2>
+          <%= link_to "Add Work", new_work_path, :class => "btn btn-primary" %>
 
-<% if @works.any? %>
-<!-- <ul> -->
-<% @works.each do |work| %>
-<div class="form-group">
-
-   <%= link_to work.title, work_path(work.id) %>
-
- </div>
-<% end %>
-<!-- </ul> -->
-<% end %>
-</div>
-</div>
+          <% if @works.any? %>
+          <!-- <ul> -->
+              <% @works.each do |work| %>
+                  <div class="form-group">
+                   <%= link_to work.title, work_path(work.id) %>
+                  </div>
+              <% end %>
+          <!-- </ul> -->
+          <% end %>
+    </div>
+  </div>
 </div>

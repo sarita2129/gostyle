@@ -1,13 +1,12 @@
 <div class="workcontainer centerdiv">
-<div class="row" >
-  <div class="col-6" id="main">
-    <h2><%= @work.title %></h2>
-    <p><%= @work.description %></p>
-    <% unless @work.image.nil? %>
-    <%= image_tag @work.image, :alt => @work.title %>
-    <% end %>
-
-  </div>
+  <div class="row" >
+      <div class="col-6" id="main">
+            <h2><%= @work.title %></h2>
+            <p><%= @work.description %></p>
+            <% unless @work.image.nil? %>
+            <%= image_tag @work.image, :alt => @work.title %>
+            <% end %>
+      </div>
 <!-- <div class="main"> -->
 
 
@@ -16,77 +15,76 @@
 
 <!-- <div class="aside"> -->
   <h2>Designed By</h2>
-  <% unless @user.nil? && @user.image.nil? %>
-  <%= image_tag @user.image, :alt => @user.name, :id => "userdp" %>
-  <% end %>
+      <% unless @user.nil? && @user.image.nil? %>
+        <%= image_tag @user.image, :alt => @user.name, :id => "userdp" %>
+      <% end %>
   <ul>
-  <li>
-  <label>Designer Name:</label>
-  <%= label_tag @user.name %>
-  </li>
+      <li>
+        <label>Designer Name:</label>
+        <%= label_tag @user.name %>
+      </li>
 
-  <li>
-  <label>Date of Birth:</label>
-  <%= label_tag @user.dob.strftime('%e %B, %Y') if @user.dob.present? %>
-  </li>
+      <li>
+        <label>Date of Birth:</label>
+        <%= label_tag @user.dob.strftime('%e %B, %Y') if @user.dob.present? %>
+      </li>
 
-  <li>
-  <label>Address:</label>
-  <%= label_tag @user.address %>
-  </li>
+      <li>
+        <label>Address:</label>
+        <%= label_tag @user.address %>
+      </li>
 
-  <li>
-  <label>Phone:</label>
-  <%= label_tag number_to_phone @user.phone %>
-  </li>
+      <li>
+        <label>Phone:</label>
+        <%= label_tag number_to_phone @user.phone %>
+      </li>
 
-  <li>
-  <label>Company Name:</label>
-  <%= label_tag @user.companyname %>
-  </li>
+      <li>
+        <label>Company Name:</label>
+        <%= label_tag @user.companyname %>
+      </li>
 
-  <li>
-  <label>Company Address:</label>
-  <%= label_tag @user.companyaddress %>
-  </li>
+      <li>
+        <label>Company Address:</label>
+        <%= label_tag @user.companyaddress %>
+      </li>
 
-  <li>
-  <label>Company Website:</label>
-  <%= label_tag @user.companywebsite %>
-  </li>
+      <li>
+        <label>Company Website:</label>
+        <%= label_tag @user.companywebsite %>
+      </li>
 
-  <li>
-  <label>Company Contact:</label>
-  <%= label_tag @user.companycontactinfo %>
-  </li>
-  <li>
-    <label>Rating:</label>
-    <% @avgrating.times do %>
-    <label class="starselect">*</label>
-    <% end %>
-    <% if 5-@avgrating > 0 %>
-    <% @rem = 5-@avgrating %>
-    <% @rem.times do %>
-    <label class="starremaining">*</label>
-    <% end %>
-    <% end %>
-    <% if @ratanlytics.any? %>
-    <table>
-      <th>Overall Ratings</th>
-        <% @ratanlytics.each do |key,value| %>
-          <tr>
-                <td>
-                   <%= pluralize value.to_i ,'person' %> rated for <%= key %>
-                </td>
-          </tr>
+      <li>
+        <label>Company Contact:</label>
+        <%= label_tag @user.companycontactinfo %>
+      </li>
+      <li>
+        <label>Rating:</label>
+        <% @avgrating.times do %>
+        <label class="starselect">*</label>
         <% end %>
-    </table>
-    <% end %>
+        <% if 5-@avgrating > 0 %>
+        <% @rem = 5-@avgrating %>
+        <% @rem.times do %>
+        <label class="starremaining">*</label>
+        <% end %>
+        <% end %>
+        <% if @ratanlytics.any? %>
+        <table>
+          <th>Overall Ratings</th>
+            <% @ratanlytics.each do |key,value| %>
+              <tr>
+                    <td>
+                       <%= pluralize value.to_i ,'person' %> rated for <%= key %>
+                    </td>
+              </tr>
+            <% end %>
+        </table>
+        <% end %>
 
-  </li>
-  </ul>
-</div>
-
+      </li>
+      </ul>
+    </div>
 </div>
 <div class="row">
   <div class="col-6">
