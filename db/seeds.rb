@@ -30,5 +30,6 @@
 # u1.update :dob => '1998-02-21'
 
 # Ratework.destroy_all
-w1 = Work.find_by :id => 4
-w1.destroy
+# w1 = Work.find_by :id => 4
+# w1.destroy
+User.destroy_all
