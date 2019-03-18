@@ -34,7 +34,7 @@ gem 'rails_12factor', group: :production
 gem 'jquery-rails'
 gem 'cloudinary'
 gem 'bootstrap'
-
+gem 'font-awesome-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

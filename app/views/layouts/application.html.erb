@@ -11,36 +11,67 @@
   </head>
 
   <body>
-    <header>
-    <nav class="navbar navbar-light bg-light">
-      <%= link_to 'GOSTYLE', root_path, :class => "logo" %>
-      <div id ="searchdiv">
-        <%= form_tag("/search", method: :get, :class => "form-inline") do %>
-          <%= text_field_tag :searchtext, params[:searchtext], placeholder: "search", class: "project-start" %>
-          <%= submit_tag "", :class => "searchbtn" %>
-        <% end %>
+    <div id="page-container">
+      <header>
+      <nav class="navbar navbar-light bg-light">
+        <%= link_to 'GOSTYLE', root_path, :class => "logo" %>
+        <div id ="searchdiv">
+          <%= form_tag("/search", method: :get, :class => "form-inline") do %>
+            <%= text_field_tag :searchtext, params[:searchtext], placeholder: "search", class: "project-start" %>
+            <%= submit_tag "", :class => "searchbtn" %>
+          <% end %>
+        </div>
+      <%= link_to 'Home', root_path , :class => "navbar-brand"%>
+      <%= link_to 'About', '/about', :class => "navbar-brand" %>
+      <%= link_to 'Contact Us', '/contact', :class => "navbar-brand" %>
+
+      <% if @current_user.present? %>
+      <% if @current_user != nil && @current_user.admin == "Buyer" %>
+          <% end %>
+          <%= link_to 'Contracts', contracts_path, :class => "navbar-brand" %>
+
+          <%= link_to 'Work', works_path, :class => "navbar-brand" %>
+
+          <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %>
+        <% else %>
+          <%= link_to 'Sign Up', new_user_path, :class => "navbar-brand" %>
+          <%= link_to 'Sign In', login_path, :class => "navbar-brand" %>
+          <% end %>
+          </nav>
+          </header>
+      <div class="container" id="content-wrap">
+        <%= yield %>
+
       </div>
-    <%= link_to 'Home', root_path , :class => "navbar-brand"%>
-    <%= link_to 'About', '/about', :class => "navbar-brand" %>
-    <%= link_to 'Contact Us', '/contact', :class => "navbar-brand" %>
+      <!-- <footer class="container-fluid w-100 bg-dark text-light py-3">
+          Footer
+      </footer> -->
 
-    <% if @current_user.present? %>
-    <% if @current_user != nil && @current_user.admin == "Buyer" %>
-        <% end %>
-        <%= link_to 'Contracts', contracts_path, :class => "navbar-brand" %>
+      <footer class="footer-distributed" id="footer">
 
-        <%= link_to 'Work', works_path, :class => "navbar-brand" %>
-        
-        <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %>
-      <% else %>
-        <%= link_to 'Sign Up', new_user_path, :class => "navbar-brand" %>
-        <%= link_to 'Sign In', login_path, :class => "navbar-brand" %>
-        <% end %>
-        </nav>
-        </header>
-    <div class="container">
-      <%= yield %>
+  			<div class="footer-right">
 
+  				<a href="#"><i class="fa fa-facebook"></i></a>
+  				<a href="#"><i class="fa fa-twitter"></i></a>
+  				<a href="#"><i class="fa fa-linkedin"></i></a>
+
+  			</div>
+
+  			<div class="footer-left">
+
+  				<p class="footer-links">
+  					<a href="<%=root_path%>">Home</a>
+  					·
+  					<a href="/about">About</a>
+  					·
+  					<a href="#">Contact</a>
+  				</p>
+
+  				<p>GOSTYLE &copy; 2015</p>
+  			</div>
+
+  		</footer>
     </div>
+
   </body>
 </html>

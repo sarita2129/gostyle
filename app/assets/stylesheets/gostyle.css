@@ -1,3 +1,10 @@
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+#content-wrap {
+  padding-bottom: 10rem;    /* Footer height */
+}
 .workdiv{
   width:200px;
   height:200px;
